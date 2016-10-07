@@ -17,18 +17,19 @@ function password_generator($number_of_words,$special_character,$number){
 function include_special_character(){
   $special_characters_array = array('~','!','@','#','$','%','^','&','*','(',')','+','=');
   shuffle($special_characters_array);
-  echo $special_characters_array[0];
+  return $special_characters_array[0];
 }
 
 function include_number(){
   $numbers_array = array('0','1','2','3','4','5','6','7','8','9');
   shuffle($numbers_array);
-  echo $numbers_array[0];
+  return $numbers_array[0];
 }
 
-function choose_words($number_of_words){
-$faith_text = "jesus is the savior of humanity he changed my life nothing makes sense without christ in first place faith hope love righteousness";
-$faith_text = explode(" ", $faith_text);
+function choose_words(){
+  $number_of_words = $_GET["number_of_words"];
+  $faith_text = "jesus is the savior of humanity he changed my life nothing makes sense without christ in first place faith hope love righteousness";
+  $faith_text = explode(" ", $faith_text);
 
   if($number_of_words == NULL || $number_of_words == '0'){
 
