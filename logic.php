@@ -1,21 +1,31 @@
 <?php
 
-function password_generator($number_of_words,$special_character,$number){
+function password_generator($special_character,$number){
+  $number_of_words = $_GET["number_of_words"];
+
   $final_password = '';
   if($special_character == 'on' && $number == 'on'){
     $final_password = choose_words($number_of_words).include_number(1).include_special_character(1);
-  }elseif($special_character == 'on'){
+  }
+
+  elseif($special_character == 'on'){
     $final_password = choose_words($number_of_words).include_special_character(1);
-  }elseif ($number == 'on') {
+  }
+
+  elseif ($number == 'on') {
     $final_password = choose_words($number_of_words).include_number(1);
-  }else {
+  }
+
+  else {
     $final_password = choose_words($number_of_words);
   }
+
   return $final_password;
+
 }
 
 function include_special_character(){
-  $special_characters_array = array('~','!','@','#','$','%','^','&','*','(',')','+','=');
+  $special_characters_array = array('!','@','#','$','%','&','*','(',')','+','=','^','~');
   shuffle($special_characters_array);
   return $special_characters_array[0];
 }
@@ -44,32 +54,32 @@ function choose_words(){
       echo $faith_text[0]."-".$faith_text[1];
 
     }
-    else if ($number_of_words == 3) {
+  else if ($number_of_words == 3) {
         shuffle($faith_text);
         echo $faith_text[0]."-".$faith_text[1]."-".$faith_text[2];
       }
 
-    else if ($number_of_words == 4) {
+  else if ($number_of_words == 4) {
           shuffle($faith_text);
           echo $faith_text[0]."-".$faith_text[1]."-".$faith_text[2]."-".$faith_text[3];
         }
-    else if ($number_of_words == 5) {
+  else if ($number_of_words == 5) {
           shuffle($faith_text);
           echo $faith_text[0]."-".$faith_text[1]."-".$faith_text[2]."-".$faith_text[3]."-".$faith_text[4];
         }
-    else if ($number_of_words == 6) {
+  else if ($number_of_words == 6) {
           shuffle($faith_text);
           echo $faith_text[0]."-".$faith_text[1]."-".$faith_text[2]."-".$faith_text[3]."-".$faith_text[4]."-".$faith_text[5];
         }
-    else if ($number_of_words == 7) {
+  else if ($number_of_words == 7) {
           shuffle($faith_text);
           echo $faith_text[0]."-".$faith_text[1]."-".$faith_text[2]."-".$faith_text[3]."-".$faith_text[4]."-".$faith_text[5]."-".$faith_text[6];
         }
-    else if ($number_of_words == 8) {
+  else if ($number_of_words == 8) {
           shuffle($faith_text);
           echo $faith_text[0]."-".$faith_text[1]."-".$faith_text[2]."-".$faith_text[3]."-".$faith_text[4]."-".$faith_text[5]."-".$faith_text[6]."-".$faith_text[7];
         }
-    else if ($number_of_words == 9) {
+  else if ($number_of_words == 9) {
           shuffle($faith_text);
           echo $faith_text[0]."-".$faith_text[1]."-".$faith_text[2]."-".$faith_text[3]."-".$faith_text[4]."-".$faith_text[5]."-".$faith_text[6]."-".$faith_text[7]."-".$faith_text[8];
         }
