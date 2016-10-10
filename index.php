@@ -34,7 +34,9 @@ ini_set('display_errors', 1);
 
 			<label for='words'> Number of words (Max 9):</label>
 			<input type='text' name='number_of_words' maxlength="1">
-
+			<?php if (isset($errormsg)): ?>
+								<p class="error"><?php echo $errormsg ?></p>
+						<?php endif ?>
 		  <br>
 
 			<label for='special_character'>Need a special character?</label>
