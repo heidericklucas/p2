@@ -4,20 +4,20 @@ function password_generator($special_character,$number){
   $number_of_words = $_GET["number_of_words"];
 
   $final_password = '';
-  if($special_character == 'on' && $number == 'on'){
-    $final_password = choose_words($number_of_words).include_number(1).include_special_character(1);
+  if(isset($_GET['special_character']) && isset($_GET['number'])){
+    $final_password = choose_words().include_special_character().include_number();
   }
 
-  elseif($special_character == 'on'){
-    $final_password = choose_words($number_of_words).include_special_character(1);
+  elseif(isset($_GET['special_character'])){
+    $final_password = choose_words().include_special_character();
   }
 
-  elseif ($number == 'on') {
-    $final_password = choose_words($number_of_words).include_number(1);
+  elseif (isset($_GET['number'])) {
+    $final_password = choose_words().include_number();
   }
 
   else {
-    $final_password = choose_words($number_of_words);
+    $final_password = choose_words();
   }
 
   return $final_password;
@@ -25,7 +25,7 @@ function password_generator($special_character,$number){
 }
 
 function include_special_character(){
-  $special_characters_array = array('!','@','#','$','%','&','*','(',')','+','=','^','~');
+  $special_characters_array = array('~','!','@','#','$','%','&','*','(',')','+','=','^');
   shuffle($special_characters_array);
   return $special_characters_array[0];
 }
