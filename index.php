@@ -17,7 +17,7 @@ ini_set('display_errors', 1);
 		<p class = 'password'>
 			<?php
 			if(sizeof($_GET)>1 || !$_GET==NULL){
-			if(! array_key_exists('special_character',$_GET) && !array_key_exists('number',$_GET)){
+			if(!array_key_exists('special_character',$_GET) && !array_key_exists("number",$_GET)){
 				echo password_generator($_GET["number_of_words"],NULL,NULL);
 			}elseif (!array_key_exists('special_character',$_GET)) {
 				echo password_generator($_GET["number_of_words"],NULL,$_GET["number"]);
