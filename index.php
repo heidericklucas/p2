@@ -32,19 +32,19 @@ ini_set('display_errors', 1);
 
 		<form method ="GET" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
-			<label for='words'> Number of words (Max 9):</label>
+			<label> Number of words (Max 9):</label>
 			<input type='text' name='number_of_words' maxlength="1">
 			<?php if (isset($errormsg)): ?>
 								<p class="error"><?php echo $errormsg ?></p>
 						<?php endif ?>
 		  <br>
 
-			<label for='special_character'>Need a special character?</label>
+			<label>Need a special character?</label>
 			<input type='checkbox' name='special_character'>
 
 			<br>
 
-			<label for='number'>Need a Number?</label>
+			<label>Need a Number?</label>
 			<input type='checkbox'  name='number'>
 
 			<br><br>
