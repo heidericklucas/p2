@@ -10,6 +10,7 @@ ini_set('display_errors', 1);
 	<link rel='stylesheet' href='style.css'>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 	<?php require('logic.php'); ?>
+
 </head>
 <body>
 	<div class = 'container'>
@@ -29,7 +30,6 @@ ini_set('display_errors', 1);
 		}
 			?>
 		</p>
-
 		<form method ="GET" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
 			<label> Number of words (Max 9):</label>

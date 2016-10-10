@@ -1,10 +1,15 @@
 <?php
 
 function password_generator($special_character,$number){
+
   $number_of_words = $_GET["number_of_words"];
 
   $final_password = '';
-  if(isset($_GET['special_character']) && isset($_GET['number'])){
+
+  if (empty($number_of_words)) {
+    $final_password = '';
+  }
+  elseif(isset($_GET['special_character']) && isset($_GET['number'])){
     $final_password = choose_words().include_special_character().include_number();
   }
 
@@ -43,8 +48,9 @@ function choose_words(){
 
   if($number_of_words == NULL || $number_of_words == '0'){
 
-    echo "";
+    echo '';
   }
+
   else if ($number_of_words == 1) {
       shuffle($faith_text);
       echo $faith_text[0];
@@ -98,7 +104,12 @@ if (isset($_GET["number_of_words"])) {
 				$errormsg = "The number has to be greater than 0.";
       }
     }
+    if (isset($_GET["special_character"]) && (!is_numeric($number_of_words) || ($number_of_words == 0))) {
+      $errormsg = "Please first enter a number from 1 to 9 and try again.";
   }
-
+    if (isset($_GET["number"]) && (!is_numeric($number_of_words) || ($number_of_words == 0))) {
+      $errormsg = "Please first enter a number from 1 to 9 and try again.";
+  }
+}
 
 ?>
