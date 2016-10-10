@@ -86,5 +86,19 @@ function choose_words(){
 
 }
 
+//VALIDATION
+
+
+if (isset($_GET["number_of_words"])) {
+		$number_of_words = $_GET["number_of_words"];
+		if (!is_numeric($number_of_words)) {
+			$errormsg = "Please enter a number from 1 to 9 and try again.";
+		} else {
+			if ($number_of_words == 0) {
+				$errormsg = "The number has to be greater than 0.";
+      }
+    }
+  }
+
 
 ?>
