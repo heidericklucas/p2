@@ -6,8 +6,8 @@ function password_generator($special_character,$number){
 
   $final_password = '';
 
-  if (empty($number_of_words)) {
-    $final_password = '';
+  if (empty($number_of_words) || (!is_numeric($number_of_words))) {
+    $final_password = default_choose_words();
   }
   elseif(isset($_GET['special_character']) && isset($_GET['number'])){
     $final_password = choose_words().include_special_character().include_number();
@@ -39,6 +39,18 @@ function include_number(){
   $numbers_array = array('0','1','2','3','4','5','6','7','8','9');
   shuffle($numbers_array);
   return $numbers_array[0];
+}
+
+function default_choose_words(){
+
+  $number_of_words = $_GET["number_of_words"];
+
+  $faith_text = "jesus is the savior of humanity he changed my life nothing makes sense without christ in first place faith hope love righteousness";
+  $faith_text = explode(" ", $faith_text);
+
+  shuffle($faith_text);
+  echo $faith_text[0]."-".$faith_text[1]."-".$faith_text[2]."-".$faith_text[3];
+
 }
 
 function choose_words(){
@@ -98,18 +110,17 @@ function choose_words(){
 if (isset($_GET["number_of_words"])) {
 		$number_of_words = $_GET["number_of_words"];
 		if (!is_numeric($number_of_words)) {
-			$errormsg = "Please enter a number from 1 to 9 and try again.";
-		} else {
-			if ($number_of_words == 0) {
+			$errormsg = "Please enter a number from 1 to 9 and try again. Showing generated password with 4 words (default).";
+		} elseif ($number_of_words == 0) {
 				$errormsg = "The number has to be greater than 0.";
       }
     }
     if (isset($_GET["special_character"]) && (!is_numeric($number_of_words) || ($number_of_words == 0))) {
-      $errormsg = "Please first enter a number from 1 to 9 and try again.";
+      $errormsg = "Please first enter a number from 1 to 9 and try again. Showing generated password with 4 words (default).";
   }
     if (isset($_GET["number"]) && (!is_numeric($number_of_words) || ($number_of_words == 0))) {
-      $errormsg = "Please first enter a number from 1 to 9 and try again.";
+      $errormsg = "Please first enter a number from 1 to 9 and try again. Showing generated password with 4 words (default).";
   }
-}
+
 
 ?>
