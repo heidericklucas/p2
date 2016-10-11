@@ -112,7 +112,7 @@ if (isset($_GET["number_of_words"])) {
 		if (!is_numeric($number_of_words)) {
 			$errormsg = "Please enter a number from 1 to 9 and try again. Showing generated password with 4 words (default).";
 		} elseif ($number_of_words == 0) {
-				$errormsg = "The number has to be greater than 0.";
+				$errormsg = "The number has to be greater than 0. Showing generated password with 4 words (default).";
       }
     }
     if (isset($_GET["special_character"]) && (!is_numeric($number_of_words) || ($number_of_words == 0))) {
