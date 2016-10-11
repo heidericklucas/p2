@@ -3,13 +3,10 @@
 <http://p2.lucashvieira.me>
 
 ## Description
-A simple xkcd password generator, where the user determines the number of words he wants and set options like adding a number and/or a symbol.
+A simple xkcd password generator, in which the user determines the number of words he wants and sets options like adding a number and/or a symbol.
 
 ## Demo
-no demo yet
-
-## Details
-nothing yet
+<https://www.youtube.com/watch?v=i65kJGiKvhw>
 
 ## Outside code
-* nothing yet
+* Font used: https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300
